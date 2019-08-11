@@ -1,8 +1,10 @@
 - hosts: all
-  become: yes
+  become: True
 
   vars:
     pip_install_packages:
+      - name: pip
+        state: latest
       - name: awscli
 
   roles:
