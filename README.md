@@ -1,12 +1,41 @@
-This playbook installs AWS CLI on CentOS7.
+[![](https://github.com/ansible-roles-matsumura/awscli/workflows/Build/badge.svg)](https://github.com/ansible-roles-matsumura/awscli/actions?query=workflow%3ABuild)
+[![](https://github.com/ansible-roles-matsumura/awscli/workflows/Lint/badge.svg)](https://github.com/ansible-roles-matsumura/awscli/actions?query=workflow%3ALint)
+[![](https://github.com/ansible-roles-matsumura/awscli/workflows/Trailing%20whitespace/badge.svg)](https://github.com/ansible-roles-matsumura/awscli/actions?query=workflow%3A%22Trailing+whitespace%22)
 
-## Install AWS CLI
+Role Description
+=========
 
-Change to root and execute commands below.
+Installs [AWS CLI](https://docs.aws.amazon.com/cli/index.html) for CentOS7.
 
+Requirements
+------------
+
+None
+
+Role Variables
+--------------
+
+```YAML
+awscli_working_dir: /tmp/awscli_working_dir
 ```
-ansible-galaxy install -r roles/requirements.yml
-ansible-playbook -i localhost, -c local install.yml
+
+Dependencies
+------------
+
+None
+
+Example Playbook
+----------------
+
+```YAML
+---
+- hosts: all
+  become: true
+  roles:
+    - awscli
 ```
 
+License
+-------
 
+BSD

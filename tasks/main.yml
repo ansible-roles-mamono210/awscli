@@ -1,0 +1,41 @@
+---
+- name: Check if AWS CLI is intalled
+  shell: aws --version
+  register: AWSCLI_INSTALLED
+  changed_when: false
+  ignore_errors: true
+  environment:
+    PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
+
+- name: Install required packages
+  yum:
+    name: unzip
+    state: present
+
+- name: Delete working directory
+  file:
+    path: '{{ awscli_working_dir }}'
+    state: absent
+  when: AWSCLI_INSTALLED is failed
+
+- name: Delete working directory
+  file:
+    path: '{{ awscli_working_dir }}'
+    recurse: yes
+    state: directory
+  when: AWSCLI_INSTALLED is failed
+
+- name: Get AWS CLI installer
+  unarchive:
+    src: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+    dest: '{{ awscli_working_dir }}'
+    remote_src: yes
+  when: AWSCLI_INSTALLED is failed
+
+- name: Install AWS CLI
+  shell: ./aws/install
+  args:
+     chdir: '{{ awscli_working_dir }}'
+  environment:
+    PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
+  when: AWSCLI_INSTALLED is failed
