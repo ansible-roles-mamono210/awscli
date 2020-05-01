@@ -5,7 +5,7 @@
 Role Description
 =========
 
-Installs [AWS CLI](https://docs.aws.amazon.com/cli/index.html) for CentOS7.
+Installs [AWS CLI version2](https://docs.aws.amazon.com/cli/index.html) for CentOS7.
 
 Requirements
 ------------
