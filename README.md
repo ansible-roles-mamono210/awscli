@@ -1,5 +1,6 @@
-[![](https://github.com/ansible-roles-matsumura/awscli/workflows/Build/badge.svg)](https://github.com/ansible-roles-matsumura/awscli/actions?query=workflow%3ABuild)
-[![](https://github.com/ansible-roles-matsumura/awscli/workflows/Lint/badge.svg)](https://github.com/ansible-roles-matsumura/awscli/actions?query=workflow%3ALint)
+[![](https://github.com/ansible-roles-matsumura/awscli/workflows/yamllint/badge.svg)](https://github.com/ansible-roles-matsumura/awscli/actions?query=workflow%3Ayamllint)
+[![](https://github.com/ansible-roles-matsumura/awscli/workflows/ansible-playbook/badge.svg)](https://github.com/ansible-roles-matsumura/awscli/actions?query=workflow%3Aansible-playbook)
+[![](https://github.com/ansible-roles-matsumura/awscli/workflows/ansible-lint/badge.svg)](https://github.com/ansible-roles-matsumura/awscli/actions?query=workflow%3Aansible-lint)
 [![](https://github.com/ansible-roles-matsumura/awscli/workflows/Trailing%20whitespace/badge.svg)](https://github.com/ansible-roles-matsumura/awscli/actions?query=workflow%3A%22Trailing+whitespace%22)
 
 Role Description

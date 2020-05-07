@@ -35,7 +35,7 @@
 - name: Install AWS CLI
   shell: ./aws/install
   args:
-     chdir: '{{ awscli_working_dir }}'
+    chdir: '{{ awscli_working_dir }}'
   environment:
     PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
   when: AWSCLI_INSTALLED is failed
