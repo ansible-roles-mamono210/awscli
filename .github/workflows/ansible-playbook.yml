@@ -1,9 +1,9 @@
 ---
 name: ansible-playbook
-on: push
+on: [deployment, push]
 
 jobs:
-  execute:
+  ansible-playbook:
     runs-on: ubuntu-latest
     steps:
       - name: Upgrade Ansible
@@ -23,18 +23,18 @@ jobs:
           ansible-galaxy install -r tests/roles/requirements.yml -p tests/roles
 
       - name: Execute ansible-playbook command
+        env:
+          ANSIBLE_FORCE_COLOR: '1'
         run: |
           ansible-playbook -i 'mycontainer,' -c docker -u ansible \
           tests/test.yml
-        env:
-          ANSIBLE_FORCE_COLOR: '1'
 
       - name: Check idempotency
+        env:
+          ANSIBLE_FORCE_COLOR: '1'
         run: |
           ansible-playbook -i 'mycontainer,' -c docker -u ansible \
           tests/test.yml
-        env:
-          ANSIBLE_FORCE_COLOR: '1'
 
       - name: Check if the command works
         run: |
