@@ -1,5 +1,5 @@
 ---
-- name: Check if AWS CLI is intalled
+- name: Check whether AWS CLI is installed
   shell: aws --version
   register: AWSCLI_INSTALLED
   changed_when: false
@@ -8,9 +8,10 @@
     PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
 
 - name: Install required packages
-  yum:
+  package:
     name: unzip
     state: present
+  when: AWSCLI_INSTALLED is failed
 
 - name: Delete working directory
   file:

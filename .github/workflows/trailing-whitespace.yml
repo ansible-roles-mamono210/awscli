@@ -1,5 +1,5 @@
 ---
-name: Trailing whitespace
+name: trailing whitespace
 on: [deployment, push]
 
 jobs:
@@ -8,4 +8,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: harupy/find-trailing-whitespace@master
+      - uses: harupy/find-trailing-whitespace@56310d7

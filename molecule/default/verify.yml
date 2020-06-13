@@ -1,0 +1,25 @@
+---
+- name: Verify
+  hosts: all
+
+  tasks:
+    - name: Check whether AWS CLI is installed
+      command: aws --version
+      register: AWSCLI_VERSION
+      changed_when: false
+      ignore_errors: true
+      environment:
+        PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
+
+    - name: Check OS version
+      command: cat /etc/redhat-release
+      register: OS_VERSION
+      changed_when: false
+
+    - name: Show AWS CLI version
+      debug:
+        var: AWSCLI_VERSION
+
+    - name: Show OS version
+      debug:
+        var: OS_VERSION
