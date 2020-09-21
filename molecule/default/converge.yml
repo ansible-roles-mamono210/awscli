@@ -5,4 +5,4 @@
     ansible_user: ansible
   roles:
     - role: awscli
-      become: True
+      become: true
