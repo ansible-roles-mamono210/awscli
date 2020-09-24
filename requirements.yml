@@ -1,7 +1,0 @@
----
-roles:
-  - name: awscli
-    src: https://github.com/ansible-roles-matsumura/awscli.git
-
-collections:
-  - name: community.general
