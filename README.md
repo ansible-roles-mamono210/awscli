@@ -3,7 +3,7 @@
 Role Description
 =========
 
-Installs [AWS CLI version2](https://docs.aws.amazon.com/cli/index.html) for CentOS7/CentOS8.
+Installs [AWS CLI version2](https://docs.aws.amazon.com/cli/index.html) for CentOS7/Stream8.
 
 Requirements
 ------------
