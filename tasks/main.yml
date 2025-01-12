@@ -1,7 +1,7 @@
 ---
 - name: Check whether AWS CLI is installed
   ansible.builtin.shell: aws --version
-  register: AWSCLI_INSTALLED
+  register: awscli_installed
   changed_when: false
   ignore_errors: true
   environment:
@@ -11,32 +11,33 @@
   ansible.builtin.package:
     name: unzip
     state: present
-  when: AWSCLI_INSTALLED is failed
+  when: awscli_installed is failed
 
 - name: Delete working directory
   ansible.builtin.file:
     path: '{{ awscli_working_dir }}'
     state: absent
-  when: AWSCLI_INSTALLED is failed
+  when: awscli_installed is failed
 
 - name: Create working directory
   ansible.builtin.file:
     path: '{{ awscli_working_dir }}'
     recurse: yes
     state: directory
-  when: AWSCLI_INSTALLED is failed
+  when: awscli_installed is failed
 
 - name: Get AWS CLI installer
   ansible.builtin.unarchive:
     src: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
     dest: '{{ awscli_working_dir }}'
     remote_src: yes
-  when: AWSCLI_INSTALLED is failed
+  when: awscli_installed is failed
 
 - name: Install AWS CLI
   ansible.builtin.shell: ./aws/install
   args:
     chdir: '{{ awscli_working_dir }}'
+  changed_when: false
   environment:
     PATH: "/usr/local/bin:{{ ansible_env.PATH }}"
-  when: AWSCLI_INSTALLED is failed
+  when: awscli_installed is failed

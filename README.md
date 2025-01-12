@@ -1,9 +1,9 @@
-[![](https://github.com/ansible-roles-matsumura/awscli/workflows/build/badge.svg)](https://github.com/ansible-roles-matsumura/awscli/actions?query=workflow%3Abuild)
+[![CircleCI](https://circleci.com/gh/ansible-roles-mamono210/awscli/tree/main.svg?style=svg)](https://circleci.com/gh/ansible-roles-mamono210/awscli/tree/main)
 
 Role Description
 =========
 
-Installs [AWS CLI version2](https://docs.aws.amazon.com/cli/index.html) for CentOS7/Stream8.
+Installs [AWS CLI version2](https://docs.aws.amazon.com/cli/index.html) for CentOS Stream 9.
 
 Requirements
 ------------

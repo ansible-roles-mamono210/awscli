@@ -5,7 +5,7 @@
   tasks:
     - name: Check whether AWS CLI is installed
       ansible.builtin.command: aws --version
-      register: AWSCLI_VERSION
+      register: awscli_version
       changed_when: false
       ignore_errors: true
       environment:
@@ -13,13 +13,13 @@
 
     - name: Check OS version
       ansible.builtin.command: cat /etc/redhat-release
-      register: OS_VERSION
+      register: os_version
       changed_when: false
 
     - name: Show AWS CLI version
       ansible.builtin.debug:
-        var: AWSCLI_VERSION
+        var: awscli_version
 
     - name: Show OS version
       ansible.builtin.debug:
-        var: OS_VERSION
+        var: os_version

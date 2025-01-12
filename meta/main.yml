@@ -2,14 +2,13 @@
 dependencies: []
 galaxy_info:
   author: mamono210
-  company:
+  company: no name
   description: AWS CLI version 2 installation for Linux.
   galaxy_tags: []
   license: "license (BSD, MIT)"
-  min_ansible_version: 4.5
+  min_ansible_version: 11.0.0
   role_name: awscli
   platforms:
     - name: EL
-      versions:
-        - 7
-        - 8
+      release:
+        - 9
